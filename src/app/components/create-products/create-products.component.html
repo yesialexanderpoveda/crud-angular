@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="title">{{title | uppercase}}</span>
+          <form [formGroup]='productForm' (ngSubmit)="addProduct()">
+            <div class="mb-3">
+              <input type="text" formControlName="product" 
+              class="form-control form-control-lg" placeholder="Producto">
+            <div *ngIf="productForm.hasError('required', 'product') && productForm.get('product')?.touched" class="text-danger">
+           <span>El nombre del producto <strong>es obligatorio</strong></span>
+            </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="category" 
+              class="form-control form-control-lg" placeholder="Categoría">
+              <div *ngIf="productForm.hasError('required', 'category') && productForm.get('category')?.touched" class="text-danger">
+                <span>El nombre del producto <strong>es obligatorio</strong></span>
+                 </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="location"
+              class="form-control form-control-lg" placeholder="Ubicación">
+              <div *ngIf="productForm.hasError('required', 'location') && productForm.get('location')?.touched" class="text-danger">
+                <span>El nombre del producto <strong>es obligatorio</strong></span>
+                 </div>
+            </div>
+            <div class="mb-3">
+              <input type="number" formControlName="price" 
+              class="form-control form-control-lg" placeholder="Precio">
+              <div *ngIf="productForm.hasError('required', 'price') && productForm.get('price')?.touched" class="text-danger">
+                <span>El nombre del producto <strong>es obligatorio</strong></span>
+                 </div>
+            </div>
+
+            <div class="mb-3">
+              <button class="btn btn-secondary btn-lg float-start" routerLink="/">Volver</button>
+              <button  type="submit" [disabled]="productForm.invalid" class="btn btn-success btn-lg float-end">Aceptar</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
