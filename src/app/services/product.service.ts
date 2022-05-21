@@ -9,7 +9,7 @@ import { Product } from "../models/products";
 
 export class ProductService{
 
-  url = 'http://localhost:4000/api/products'
+  url = 'https://crud-angular-yapy.herokuapp.com/api/employees'
   constructor(private http:HttpClient){}
 
   getProducts(): Observable<any>{
