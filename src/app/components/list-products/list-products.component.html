@@ -5,30 +5,32 @@
         <div class="card-body text-center">
           <span class="title">LISTADO DE PRODUCTOS</span>
           <button class="btn btn-success float-end" routerLink="/create-product">Nuevo</button>
-          <table *ngIf="listProducts.length > 0" class="table table-striped mt-3">
-            <thead>
-              <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Ubicaion</th>
-                <th scope="col">Precio</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let product of listProducts">
-                <td>{{product.name}}</td>
-                <td>{{product.category}}</td>
-                <td>{{product.location}}</td>
-                <td>{{product.price | currency: 'USD'}}</td>
-                <td>
-                  <i [routerLink]="['/edit-product', product._id]" class="fas fa-edit text-primary"></i>
-                  <i (click)="deleteProduct(product._id)" class="fas fa-trash text-danger"></i>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <h5 *ngIf="listProducts.length == 0">No hay productos para mostrar</h5> 
+          <div class="table-responsive-sm">
+            <table *ngIf="listProducts.length > 0" class="table table-striped mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Ubicación</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of listProducts">
+                  <td>{{product.name}}</td>
+                  <td>{{product.category}}</td>
+                  <td>{{product.location}}</td>
+                  <td>{{product.price | currency: 'USD'}}</td>
+                  <td>
+                    <i [routerLink]="['/edit-product', product._id]" class="fas fa-edit text-primary"></i>
+                    <i (click)="deleteProduct(product._id)" class="fas fa-trash text-danger"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h5 *ngIf="listProducts.length == 0">No hay productos para mostrar</h5>
         </div>
       </div>
     </div>
